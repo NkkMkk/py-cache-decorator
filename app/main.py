@@ -5,7 +5,7 @@ def cache(func: Callable) -> Callable:
     result_list = {}
 
     def inner(*args) -> Any:
-        if args not in result_list.keys():
+        if args not in result_list:
             result_list[args] = func(*args)
             print("Calculating new result")
         else:
